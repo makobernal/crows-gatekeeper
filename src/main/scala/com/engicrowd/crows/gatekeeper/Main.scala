@@ -10,9 +10,9 @@ object Main extends App {
   private def commandLoop(): Unit = {
     Console.readLine() match {
       case QuitCommand         => return
+      case StartProducerCommand(producer) => println(producer)
       case _                   => println("WTF??!!")
     }
-
     commandLoop()
   }
 
@@ -24,4 +24,5 @@ object Main extends App {
 
 object Commands {
   val QuitCommand = "quit"
+  val StartProducerCommand = "startproducer (.*)".r
 }
